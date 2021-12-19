@@ -7,21 +7,18 @@ import {
 
 function Schedule() {
   return (
-    <div className="scheduler">
-      <Scheduler
-        height={700}
-        locale="es-ES"
-        firstDayOfWeek={1}
-        style={{ color: "#FFF" }}
-      >
-        <WeekView
-          startDayHour={7}
-          endDayHour={20}
-          cellDuration={60}
-          //   timeTableCellComponent={TimeTableCell}
-        />
-        {/* <Appointments /> */}
-      </Scheduler>
+    <div className="scheduler__container">
+      <div className="scheduler">
+        <Scheduler height={800} locale="es-ES" firstDayOfWeek={1}>
+          <WeekView
+            startDayHour={7}
+            endDayHour={22}
+            cellDuration={60}
+            //   timeTableCellComponent={TimeTableCell}
+          />
+          {/* <Appointments /> */}
+        </Scheduler>
+      </div>
     </div>
   );
 }

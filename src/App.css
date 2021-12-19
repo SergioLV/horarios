@@ -6,33 +6,71 @@
   font-family: 'Roboto', sans-serif;
 }
 .navbar{
+  
+  padding-left: 7rem;
+  padding-right: 7rem;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+
   display: flex;
   flex-direction: row;
-  background-color: #E8E8E8;
+  justify-content: space-between;
+  /* background-color: #E8E8E8; */
 }
-.navbar h1{
-  padding: 1.2rem;
+.title{
+  
+  font-size: 1.6rem;
   color: #C11C2B;
+}
+.title h1{
+  padding-top: 0.6rem;
+}
+.links{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+
+}
+.first_link{
+  font-size: large;
+  font-weight: lighter ;
+  margin-right: 1rem;
+}
+.first_link:hover{
+  font-weight: 500;
+}
+.second_link{
+  font-size: large;
+  font-weight: lighter ;
+}
+.second_link:hover{
+  font-weight: 500 ;
 }
 .page__content{
   display: flex;
   flex-direction: row;
-  height: 93vh;
   justify-content: center;
-  align-items: center;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  /* align-items: center; */
 }
 .inputs{
+  padding-top: 1rem;
   display: flex;
-  align-items: center;
   justify-content: center;
   width: 40vw;
-  background-color: #3A606E;
-  height: 93vh;
+  /* background-color: #3A606E; */
+  align-items: flex-start;
+  /* height: 93vh; */
 }
 .selection__background{
-  position: relative;
-  height: 80vh;
+  /* position: relative; */
+  /* height: 80vh; */
+  display: flex;
+  flex-direction: column;
+  
   background-color:#E8E8E8 ;
+  border-radius: 15px;
 }
 .career__selection{
   color: #C11C2B;
@@ -47,15 +85,23 @@
   padding-top: 2rem;
   padding-left: 2rem;
   padding-right: 2rem;
+  padding-bottom: 2rem;
 }
 .courses{
   display: flex;
   flex-direction: row;
   margin-top: 1rem;
 }
+.scheduler__container{
+  display: flex;
+  flex-direction: column;
+}
 .scheduler{
-  padding: 3rem;
-  width: 60vw;
+  padding: 0rem 3rem;
+  width: 55vw;
+}
+.Root-container-1{
+  width: 50vw !important;
 }
 .Cell-highlightedText-24{
   color: #C11C2B !important;
@@ -67,4 +113,12 @@
 }
 .css-1c2i806-MuiFormLabel-root-MuiInputLabel-root.Mui-focused{
   color: #C11C2B !important;
+}
+.description{
+  
+  padding-top: 1rem;
+  padding-bottom: 3rem;
+  padding-left: 4.3rem;
+  padding-right: 4.3rem;
+  
 }
