@@ -9,8 +9,9 @@ function Schedule() {
   return (
     <div className="scheduler__container">
       <div className="scheduler">
-        <Scheduler height={800} locale="es-ES" firstDayOfWeek={1}>
+        <Scheduler className="scheduler__react" locale="es-ES" excludedDays={7}>
           <WeekView
+            excludedDays={[0]}
             startDayHour={7}
             endDayHour={22}
             cellDuration={60}
