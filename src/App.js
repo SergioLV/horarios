@@ -1,18 +1,22 @@
 import "./App.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 import Navbar from "./components/Navbar";
-import Schedule from "./components/Schedule";
-import UserSelection from "./components/UserSelection";
+import Home from "./components/Home";
+import Horario from "./components/Horario";
+import Oferta from "./components/Oferta";
 
 function App() {
   return (
-    <div className="App">
+    <Router>
       <Navbar />
-
-      <div className="page__content">
-        <Schedule />
-        <UserSelection />
-      </div>
-    </div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/horario" element={<Horario />} />
+        <Route path="/oferta" element={<Oferta />} />
+        <Route path="*" element={<Home />} />
+      </Routes>
+    </Router>
   );
 }
 
