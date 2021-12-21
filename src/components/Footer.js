@@ -5,8 +5,12 @@ function Footer() {
     <footer className="footer">
       <p>
         Creado con {"<3"} por{" "}
-        <a className="github__link" href="https://github.com/sergiolb">
+        <a className="github__link" href="https://github.com/sergiolv">
           @SergioLV
+        </a>{" "}
+        y{" "}
+        <a className="github__link" href="https://github.com/vicebp">
+          @ViceBP
         </a>{" "}
       </p>
     </footer>
