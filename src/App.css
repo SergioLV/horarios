@@ -134,6 +134,13 @@
   padding-left: 3rem;
   padding-right: 3rem;
 }
+.page__content__oferta{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
 /* Home */
 .home__content{
   display: flex;
@@ -238,6 +245,49 @@
 .css-1c2i806-MuiFormLabel-root-MuiInputLabel-root.Mui-focused{
   color: #C11C2B !important;
 }
+/* Oferta */
+.selector__carrera__oferta{
+  width: 100%;
+  margin-left: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+}
+.selector__carrera__oferta h2{
+  color: #C11C2B;
+}
+
+.search__bar{
+  display: flex;
+  flex-direction: row;
+  justify-self: flex-start;
+  width: 10vw;
+  margin-left: 4rem;
+  margin-top: 2rem;
+}
+.table__search{
+  padding: 1rem;
+  border-radius: 10px;
+}
+.table__oferta__container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.table__oferta{
+  width: 50vw;
+  
+}
+.ReactVirtualized__Table__headerRow{
+  background-color: #C11C2B;
+}
+.MuiTableCell-head{
+  color: #FFF !important;
+}
+
+
 /* Footer */
 .footer{
   display: flex;
