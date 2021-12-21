@@ -238,5 +238,25 @@
 .css-1c2i806-MuiFormLabel-root-MuiInputLabel-root.Mui-focused{
   color: #C11C2B !important;
 }
+/* Footer */
+.footer{
+  display: flex;
+  flex-direction:row ;
+  align-items: flex-start;
+  padding-left: 7rem;
+  padding-bottom: 2rem;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: #000;
+}
 
+.github__link{
+  text-decoration: none;
+  color: #000;
+}
+.github__link:hover{
+ color: #C11C2B;
+}
 

@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import Horario from "./components/Horario";
 import Oferta from "./components/Oferta";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/oferta" element={<Oferta />} />
         <Route path="*" element={<Home />} />
       </Routes>
+      <Footer />
     </Router>
   );
 }
