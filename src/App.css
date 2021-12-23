@@ -137,9 +137,11 @@
 .page__content__oferta{
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
   padding-left: 3rem;
   padding-right: 3rem;
+  /* width: 60vw; */
 }
 /* Home */
 .home__content{
@@ -246,15 +248,10 @@
   color: #C11C2B !important;
 }
 /* Oferta */
-.selector__carrera__oferta{
-  width: 100%;
-  margin-left: 4rem;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
 
-}
+
 .selector__carrera__oferta h2{
+  margin-bottom: 1rem;
   color: #C11C2B;
 }
 
@@ -263,7 +260,7 @@
   flex-direction: row;
   justify-self: flex-start;
   width: 10vw;
-  margin-left: 4rem;
+  margin-bottom: 2rem;
   margin-top: 2rem;
 }
 .table__search{

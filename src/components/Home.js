@@ -1,11 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Typical from "react-typical";
 
 function Home() {
   return (
     <div className="page__content">
       <div className="home__content">
         <div className="home__title">
+          <Typical
+            steps={["Crea tu horario", 1000]}
+            loop={Infinity}
+            wrapper="p"
+          />
           <h1>
             Crea tu horario y revisa la oferta académica UDP <br /> desde un
             solo lugar!
