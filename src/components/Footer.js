@@ -1,8 +1,9 @@
 import React from "react";
 
-function Footer() {
+function Footer({ inScheduler }) {
+  console.log(inScheduler);
   return (
-    <footer className="footer">
+    <footer className={inScheduler ? "footer__scheduler" : "footer"}>
       <p>
         Creado con {"<3"} por{" "}
         <a className="github__link" href="https://github.com/sergiolv">

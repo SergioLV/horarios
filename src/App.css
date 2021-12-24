@@ -1,12 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;900&display=swap');
-*{
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;900&display=swap");
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 /* NavBar */
-.navbar{
+.navbar {
   padding-left: 7rem;
   padding-right: 7rem;
   padding-top: 1rem;
@@ -15,83 +15,82 @@
   flex-direction: row;
   justify-content: space-between;
 }
-.title{
+.title {
   font-size: 1.6rem;
-  color: #C11C2B;
+  color: #c11c2b;
 }
-.title h1{
+.title h1 {
   padding-top: 0.6rem;
 }
-.router__link{
+.router__link {
   text-decoration: none;
   color: black;
 }
-.links{
+.links {
   display: flex;
   flex-direction: row;
   align-items: flex-end;
   position: relative;
 }
-.links a{
+.links a {
   text-decoration: none;
   color: black;
 }
 
-.first_link{
+.first_link {
   font-size: large;
-  font-weight: lighter ;
+  font-weight: lighter;
   margin-right: 1rem;
   position: relative;
 }
 
-.first_link:hover{
-  font-weight: 500;  
+.first_link:hover {
+  font-weight: 500;
   cursor: pointer;
 }
-.first_link:after{
-  content: '';
+.first_link:after {
+  content: "";
   /* width: 100%; */
   margin-top: 1rem;
   height: 2px;
-  background: #C11C2B;
+  background: #c11c2b;
   position: absolute;
   bottom: 0%;
   left: 0%;
 }
 
-.active__link{
+.active__link {
   text-decoration: none;
   color: black;
 }
-.active__link h2{
-  font-weight: 500 ;  
+.active__link h2 {
+  font-weight: 500;
 }
-.active__link:after{
-  content: '';
+.active__link:after {
+  content: "";
   width: 42.3%;
   margin-top: 1rem;
   height: 2px;
-  background: #C11C2B;
+  background: #c11c2b;
   position: absolute;
   bottom: 0%;
   left: 0%;
 }
-.active__link__2 h2{
-  font-weight: 500 ;  
+.active__link__2 h2 {
+  font-weight: 500;
 }
-.active__link__2:after{
-  content: '';
+.active__link__2:after {
+  content: "";
   width: 53%;
   margin-top: 1rem;
   height: 2px;
-  background: #C11C2B;
+  background: #c11c2b;
   position: absolute;
   bottom: 0%;
   right: 0%;
 }
 
 .first_link:hover:after {
-  
   margin-top: 1rem;
   width: 100%;
   height: 2px;
@@ -99,25 +98,24 @@
   transform: translateY(50%);
   /* width: 100%; */
 }
-.second_link{
+.second_link {
   font-size: large;
-  font-weight: lighter ;
+  font-weight: lighter;
   position: relative;
 }
-.second_link:hover{
-  font-weight: 500 ;
+.second_link:hover {
+  font-weight: 500;
   cursor: pointer;
 }
 
-.second_link:after{
-  content: '';
+.second_link:after {
+  content: "";
   margin-top: 1rem;
   height: 2px;
-  background: #C11C2B;
+  background: #c11c2b;
   position: absolute;
   bottom: 0%;
   left: 0%;
-
 }
 .second_link:hover:after {
   margin-top: 1rem;
@@ -127,14 +125,14 @@
   transform: translateY(50%);
 }
 /* Pages content */
-.page__content{
+.page__content {
   display: flex;
   flex-direction: row;
   justify-content: center;
   padding-left: 3rem;
   padding-right: 3rem;
 }
-.page__content__oferta{
+.page__content__oferta {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -144,7 +142,7 @@
   /* width: 60vw; */
 }
 /* Home */
-.home__content{
+.home__content {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -152,110 +150,121 @@
   width: 50vw;
   height: 70vh;
 }
-.home__title{
+.home__title {
   font-size: 2rem;
 }
-.home__horario__button{
+.home__horario__button {
   font-size: 1.3rem;
   border: none;
-  background-color: #C11C2B;
+  background-color: #c11c2b;
   color: white;
   padding: 0.4rem 2rem;
   border-radius: 50px;
 }
-.home__buttons{
+.home__buttons {
   margin-top: 3rem;
   width: 100%;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
- 
 }
-.home__horario__button:hover{
+.home__horario__button:hover {
   background-color: #c11c2ab6;
-  cursor:pointer;
+  cursor: pointer;
 }
-.home__oferta__button{
+.home__oferta__button {
   margin-left: 1rem;
   font-size: 1.3rem;
   border: none;
-  background-color: #C11C2B;
+  background-color: #c11c2b;
   color: white;
   padding: 0.4rem 2rem;
   border-radius: 50px;
 }
-.home__oferta__button:hover{
+.home__oferta__button:hover {
   background-color: #c11c2ab6;
-  cursor:pointer;
+  cursor: pointer;
 }
 /* Horario */
-.selection__background{
+.horario__content {
   display: flex;
   flex-direction: column;
-  background-color:#E8E8E8 ;
-  border-radius: 15px;
 }
-.inputs{
+.scheduler__description {
+  margin-left: 7rem;
+  margin-bottom: 2rem;
+}
+.selection__background {
+  display: flex;
+  flex-direction: column;
+  background-color: #f7f6f6;
+  border-radius: 15px;
+  box-shadow: 7px 7px 5px rgb(222, 221, 221);
+}
+.inputs {
   padding-top: 1rem;
   display: flex;
   justify-content: center;
   width: 40vw;
   align-items: flex-start;
 }
-.career__selection{
-  color: #C11C2B;
+.career__selection {
+  color: #c11c2b;
   font-weight: 300;
   padding-top: 2rem;
   padding-left: 2rem;
   padding-right: 2rem;
 }
-.courses__selection{
-  color: #C11C2B;
+.courses__selection {
+  color: #c11c2b;
   font-weight: 300;
   padding-top: 2rem;
   padding-left: 2rem;
   padding-right: 2rem;
   padding-bottom: 2rem;
 }
-.courses{
+.courses {
   display: flex;
   flex-direction: row;
   margin-top: 1rem;
 }
-.scheduler__container{
+.scheduler__container {
   display: flex;
   flex-direction: column;
 }
-.scheduler{
+.scheduler {
   padding: 0rem 3rem;
   width: 55vw;
+  /* margin-bottom: 5rem; */
 }
-.scheduler__react{
+.scheduler__react {
   width: 30%;
 }
-.Root-container-1{
+.Root-container-1 {
   width: 50vw !important;
 }
-.Cell-highlightedText-24{
-  color: #C11C2B !important;
+.MuiTableBody-root {
+  color: #c11c2b !important;
 }
+/* .Cell-highlightedText-24{
+  color: #C11C2B !important;
+} */
 
-.css-ghsjzk-MuiInputBase-root-MuiInput-root:after{
+/* .css-ghsjzk-MuiInputBase-root-MuiInput-root:after{
   border-bottom: 2px solid #C11C2B !important;
 
-}
-.css-1c2i806-MuiFormLabel-root-MuiInputLabel-root.Mui-focused{
+} */
+/* .css-1c2i806-MuiFormLabel-root-MuiInputLabel-root.Mui-focused{
   color: #C11C2B !important;
-}
+} */
 /* Oferta */
 
-
-.selector__carrera__oferta h2{
+.selector__carrera__oferta h2 {
   margin-bottom: 1rem;
-  color: #C11C2B;
+  color: #c11c2b;
 }
 
-.search__bar{
+.search__bar {
   display: flex;
   flex-direction: row;
   justify-self: flex-start;
@@ -263,32 +272,30 @@
   margin-bottom: 2rem;
   margin-top: 2rem;
 }
-.table__search{
+.table__search {
   padding: 1rem;
   border-radius: 10px;
 }
-.table__oferta__container{
+.table__oferta__container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-.table__oferta{
+.table__oferta {
   width: 50vw;
-  
 }
-.ReactVirtualized__Table__headerRow{
-  background-color: #C11C2B;
+.ReactVirtualized__Table__headerRow {
+  background-color: #c11c2b;
 }
-.MuiTableCell-head{
-  color: #FFF !important;
+.MuiTableCell-head {
+  color: #fff !important;
 }
-
 
 /* Footer */
-.footer{
+.footer {
   display: flex;
-  flex-direction:row ;
+  flex-direction: row;
   align-items: flex-start;
   padding-left: 7rem;
   padding-bottom: 2rem;
@@ -298,12 +305,81 @@
   width: 100%;
   color: #000;
 }
+.footer__scheduler {
+  display: none;
+}
 
-.github__link{
+.github__link {
   text-decoration: none;
   color: #000;
 }
-.github__link:hover{
- color: #C11C2B;
+.github__link:hover {
+  color: #c11c2b;
+}
+/* .table__containter {
+  border: 100px solid black;
+  border-radius: 100px;
+  overflow: hidden;
+} */
+table {
+  /* border: 10px solid #cccccc; */
+  border-radius: 6px 6px 6px 6px;
+  border-spacing: 0px !important;
+  border-radius: 10px;
+  box-shadow: 7px 7px 5px rgb(222, 221, 221);
 }
 
+.days {
+  background-color: #c11c2b;
+  color: white;
+}
+.hours {
+  background-color: #c11c2b;
+  color: white;
+  text-align: center;
+}
+th {
+  font-size: 1rem;
+  font-weight: lighter !important;
+}
+th,
+td {
+  padding: 0.5rem;
+  height: 4em;
+  max-width: 7rem;
+  width: 10rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+td:hover {
+  background-color: #c11c2b;
+}
+/* td:hover{
+  border: 1px solid rgb(255, 128, 128);
+}
+tr{
+  text-align: center;
+}
+td:first-child{
+  background-color: white;
+  font-size: 1rem;
+  font-weight: lighter ;
+  border-top: 0px;
+  border-bottom: 0px !important;
+}
+tr:last-child td{
+  border-bottom: 1px solid black;
+
+}
+td{
+  border-right:1px solid black ;
+  border-top:1px solid black ;
+} */
+
+tr:nth-child(2n) {
+  background: #e8e8e8;
+}
+tr:nth-child(2n + 3) {
+  background: #c6c5c5;
+}

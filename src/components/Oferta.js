@@ -10,6 +10,8 @@ import TableCell from "@mui/material/TableCell";
 import Paper from "@mui/material/Paper";
 import { AutoSizer, Column, Table } from "react-virtualized";
 
+import Footer from "./Footer";
+
 const styles = (theme) => ({
   flexContainer: {
     display: "flex",
@@ -193,70 +195,73 @@ const carreras = [
 function Oferta() {
   return (
     <div className="page__content__oferta">
-      <div className="oferta__">
-        <div className="selector__carrera__oferta">
-          <h2>Selecciona una carrera</h2>
-          <Autocomplete
-            id="disable-close-on-select"
-            // disableCloseOnSelect
-            options={carreras}
-            renderInput={(params) => (
-              <TextField
-                {...params}
-                label="Carrera"
-                id="filled-size-normal"
-                // defaultValue="Normal"
-                variant="standard"
-                style={{ width: "9rem", marginRight: "1rem" }}
-              />
-            )}
-          />
-        </div>
-        <div className="search__bar">
-          <TextField label="Busca un ramo" />
-        </div>
-        <div className="table__oferta__container">
-          <div className="table__oferta">
-            <Paper style={{ height: 400, width: "100%" }}>
-              <VirtualizedTable
-                rowCount={rows.length}
-                rowGetter={({ index }) => rows[index]}
-                columns={[
-                  {
-                    width: 200,
-                    label: "Dessert",
-                    dataKey: "dessert",
-                  },
-                  {
-                    width: 120,
-                    label: "Calories\u00A0(g)",
-                    dataKey: "calories",
-                    numeric: true,
-                  },
-                  {
-                    width: 120,
-                    label: "Fat\u00A0(g)",
-                    dataKey: "fat",
-                    numeric: true,
-                  },
-                  {
-                    width: 120,
-                    label: "Carbs\u00A0(g)",
-                    dataKey: "carbs",
-                    numeric: true,
-                  },
-                  {
-                    width: 120,
-                    label: "Protein\u00A0(g)",
-                    dataKey: "protein",
-                    numeric: true,
-                  },
-                ]}
-              />
-            </Paper>
+      <Paper style={{ padding: "3rem" }} elevation={3} variant="outlined">
+        <div className="oferta__">
+          <div className="selector__carrera__oferta">
+            <h2>Selecciona una carrera</h2>
+            <Autocomplete
+              id="disable-close-on-select"
+              // disableCloseOnSelect
+              options={carreras}
+              renderInput={(params) => (
+                <TextField
+                  {...params}
+                  label="Carrera"
+                  id="filled-size-normal"
+                  // defaultValue="Normal"
+                  variant="standard"
+                  style={{ width: "9rem", marginRight: "1rem" }}
+                />
+              )}
+            />
+          </div>
+          <div className="search__bar">
+            <TextField label="Busca un ramo" />
+          </div>
+          <div className="table__oferta__container">
+            <div className="table__oferta">
+              <Paper style={{ height: 400, width: "100%" }}>
+                <VirtualizedTable
+                  rowCount={rows.length}
+                  rowGetter={({ index }) => rows[index]}
+                  columns={[
+                    {
+                      width: 200,
+                      label: "Dessert",
+                      dataKey: "dessert",
+                    },
+                    {
+                      width: 120,
+                      label: "Calories\u00A0(g)",
+                      dataKey: "calories",
+                      numeric: true,
+                    },
+                    {
+                      width: 120,
+                      label: "Fat\u00A0(g)",
+                      dataKey: "fat",
+                      numeric: true,
+                    },
+                    {
+                      width: 120,
+                      label: "Carbs\u00A0(g)",
+                      dataKey: "carbs",
+                      numeric: true,
+                    },
+                    {
+                      width: 120,
+                      label: "Protein\u00A0(g)",
+                      dataKey: "protein",
+                      numeric: true,
+                    },
+                  ]}
+                />
+              </Paper>
+            </div>
           </div>
         </div>
-      </div>
+        <Footer />
+      </Paper>
     </div>
   );
 }

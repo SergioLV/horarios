@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Typical from "react-typical";
+import Footer from "./Footer";
 
 function Home() {
   return (
@@ -37,6 +38,7 @@ function Home() {
           </button>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }
