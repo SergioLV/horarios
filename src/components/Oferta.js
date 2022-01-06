@@ -4,16 +4,38 @@ import TextField from "@mui/material/TextField";
 
 import PropTypes from "prop-types";
 import clsx from "clsx";
+import { alpha, styled } from "@mui/material/styles";
 import { withStyles } from "@mui/styles";
 import { createTheme } from "@mui/material/styles";
 import TableCell from "@mui/material/TableCell";
 import Paper from "@mui/material/Paper";
 import { AutoSizer, Column, Table } from "react-virtualized";
 import Skeleton from "@mui/material/Skeleton";
+import InputBase from "@mui/material/InputBase";
 
 import axios from "axios";
 
 import Footer from "./Footer";
+
+const CssTextField = styled(TextField)({
+  "& label.Mui-focused": {
+    color: "#000",
+  },
+  "& .MuiInput-underline:after": {
+    borderBottomColor: "#c11c2b",
+  },
+  "& .MuiOutlinedInput-root": {
+    "& fieldset": {
+      borderColor: "#c11c2b",
+    },
+    "&:hover fieldset": {
+      borderColor: "#c11c2b",
+    },
+    "&.Mui-focused fieldset": {
+      borderColor: "#c11c2b",
+    },
+  },
+});
 
 const styles = (theme) => ({
   flexContainer: {
@@ -302,9 +324,16 @@ function Oferta() {
           />
         </div>
         <div className="search__bar">
-          <TextField
+          {/* <TextField
             autoComplete="false"
             label="Busca un ramo"
+            onChange={(e) => setCurso(e.target.value)}
+          /> */}
+
+          <CssTextField
+            autoComplete="false"
+            label="Busca un ramo"
+            id="custom-css-outlined-input"
             onChange={(e) => setCurso(e.target.value)}
           />
         </div>
