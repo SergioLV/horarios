@@ -172,22 +172,25 @@ const VirtualizedTable = withStyles(styles, { defaultTheme })(
 // ---
 
 const sample = [
-  ["Frozen yoghurt", 159, 6.0, 24, 4.0],
-  ["Ice cream sandwich", 237, 9.0, 37, 4.3],
-  ["Eclair", 262, 16.0, 24, 6.0],
-  ["Cupcake", 305, 3.7, 67, 4.3],
-  ["Gingerbread", 356, 16.0, 49, 3.9],
+  <Skeleton animation="wave" width={100} />,
+  <Skeleton animation="wave" width={100} />,
+  <Skeleton animation="wave" width={100} />,
+  <Skeleton animation="wave" width={100} />,
+  <Skeleton animation="wave" width={100} />,
+  <Skeleton animation="wave" width={100} />,
+  <Skeleton animation="wave" width={100} />,
+  <Skeleton animation="wave" width={100} />,
 ];
 
-function createData(id, dessert, calories, fat, carbs, protein) {
-  return { id, dessert, calories, fat, carbs, protein };
+function createData(id, s1, s2, s3, s4, s5, s6, s7, s8) {
+  return { id, s1, s2, s3, s4, s5, s6, s7, s8 };
 }
 
 const rows = [];
 
-for (let i = 0; i < 200; i += 1) {
-  const randomSelection = sample[Math.floor(Math.random() * sample.length)];
-  rows.push(createData(i, ...randomSelection));
+for (let i = 0; i < 10; i += 1) {
+  // const randomSelection = sample[Math.floor(Math.random() * sample.length)];
+  rows.push(createData(i, ...sample));
 }
 
 const carreras = [
@@ -234,13 +237,6 @@ function Oferta() {
     );
     setFiltered(newc);
   }, [curso]);
-  const aux = (e, value) => {
-    if (value === null) {
-      return;
-    }
-
-    // console.log("diuca");
-  };
 
   useEffect(() => {
     setLoadingCursos(true);
@@ -317,55 +313,104 @@ function Oferta() {
         <Paper style={{ height: 400, width: "100%" }}>
           <VirtualizedTable
             rowCount={loadingCursos ? rows.length : filtered.length}
+            // rowCount={rows.length}
             rowGetter={
               loadingCursos
                 ? ({ index }) => rows[index]
                 : ({ index }) => filtered[index]
             }
-            columns={[
-              {
-                width: 120,
-                label: "Asignatura",
-                dataKey: "asignatura",
-              },
-              {
-                width: 280,
-                label: "Nombre Asignatura",
-                dataKey: "nombre_asignatura",
-              },
-              {
-                width: 94,
-                label: "Créditos",
-                dataKey: "creditos_asignatura",
-                // numeric: true,
-              },
-              {
-                width: 160,
-                label: "Sección",
-                dataKey: "seccion",
-              },
-              {
-                width: 240,
-                label: "Descripción Evento",
-                dataKey: "descripcion_evento",
-              },
+            // rowGetter={({ index }) => rows[index]}
+            columns={
+              loadingCursos
+                ? [
+                    {
+                      width: 120,
+                      label: "Asignatura",
+                      dataKey: "s1",
+                    },
+                    {
+                      width: 280,
+                      label: "Nombre Asignatura",
+                      dataKey: "s2",
+                    },
+                    {
+                      width: 94,
+                      label: "Créditos",
+                      dataKey: "s3",
+                      // numeric: true,
+                    },
+                    {
+                      width: 160,
+                      label: "Sección",
+                      dataKey: "s4",
+                    },
+                    {
+                      width: 240,
+                      label: "Descripción Evento",
+                      dataKey: "s5",
+                    },
 
-              {
-                width: 300,
-                label: "Horario",
-                dataKey: "horario",
-              },
-              {
-                width: 300,
-                label: "Profesor",
-                dataKey: "profesor",
-              },
-              {
-                width: 190,
-                label: "Sede",
-                dataKey: "sede",
-              },
-            ]}
+                    {
+                      width: 300,
+                      label: "Horario",
+                      dataKey: "s6",
+                    },
+                    {
+                      width: 300,
+                      label: "Profesor",
+                      dataKey: "s7",
+                    },
+                    {
+                      width: 190,
+                      label: "Sede",
+                      dataKey: "s8",
+                    },
+                  ]
+                : [
+                    {
+                      width: 120,
+                      label: "Asignatura",
+                      dataKey: "asignatura",
+                    },
+                    {
+                      width: 280,
+                      label: "Nombre Asignatura",
+                      dataKey: "nombre_asignatura",
+                    },
+                    {
+                      width: 94,
+                      label: "Créditos",
+                      dataKey: "creditos_asignatura",
+                      // numeric: true,
+                    },
+                    {
+                      width: 160,
+                      label: "Sección",
+                      dataKey: "seccion",
+                    },
+                    {
+                      width: 240,
+                      label: "Descripción Evento",
+                      dataKey: "descripcion_evento",
+                    },
+
+                    {
+                      width: 300,
+                      label: "Horario",
+                      dataKey: "horario",
+                    },
+                    {
+                      width: 300,
+                      label: "Profesor",
+                      dataKey: "profesor",
+                    },
+                    {
+                      width: 190,
+                      label: "Sede",
+                      dataKey: "sede",
+                    },
+                  ]
+            }
           />
         </Paper>
       </div>
