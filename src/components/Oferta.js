@@ -310,6 +310,14 @@ function Oferta() {
                   .replace(/\p{Diacritic}/gu, "")
               )
             }
+            sx={{
+              "& .MuiFormLabel-root": {
+                color: "#000",
+              },
+              "& .MuiInput-root:after": {
+                borderBottom: "2px solid #C11C2B",
+              },
+            }}
             options={carreras}
             renderInput={(params) => (
               <TextField
