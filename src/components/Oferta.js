@@ -180,24 +180,23 @@ function Oferta() {
   const [curso, setCurso] = useState("");
   const [cursos, setCursos] = useState([]);
   const [filtered, setFiltered] = useState([]);
-  const [loadingCursos, setLoadingCursos] = useState(false);
+  // const [loadingCursos, setLoadingCursos] = useState(false);
   useEffect(() => {
     let newc = cursos.filter((c) =>
       c.nombre_asignatura.includes(curso.toUpperCase())
     );
     setFiltered(newc);
   }, [curso]);
-  // console.log(curso);
 
   useEffect(() => {
-    setLoadingCursos(true);
+    // setLoadingCursos(true);
     const getCursos = () => {
       axios
         .get("https://horariosfic.herokuapp.com/informatica")
         .then((response) => {
           setCursos(response.data.rows);
           setFiltered(response.data.rows);
-          setLoadingCursos(false);
+          // setLoadingCursos(false);
           console.log(response.data.rows);
         })
         .catch((e) => {
@@ -208,29 +207,31 @@ function Oferta() {
   }, []);
   return (
     <div className="page__content__oferta">
-      <div className="selector__carrera__oferta">
-        <h2>Selecciona una carrera</h2>
-        <Autocomplete
-          id="disable-close-on-select"
-          // disableCloseOnSelect
-          options={carreras}
-          renderInput={(params) => (
-            <TextField
-              {...params}
-              label="Carrera"
-              id="filled-size-normal"
-              // defaultValue="Normal"
-              variant="standard"
-              style={{ width: "9rem", marginRight: "1rem" }}
-            />
-          )}
-        />
-      </div>
-      <div className="search__bar">
-        <TextField
-          label="Busca un ramo"
-          onChange={(e) => setCurso(e.target.value)}
-        />
+      <div className="buscador__oferta">
+        <div className="selector__carrera__oferta">
+          <h2>Selecciona una carrera</h2>
+          <Autocomplete
+            id="disable-close-on-select"
+            // disableCloseOnSelect
+            options={carreras}
+            renderInput={(params) => (
+              <TextField
+                {...params}
+                label="Carrera"
+                id="filled-size-normal"
+                // defaultValue="Normal"
+                variant="standard"
+                style={{ width: "9rem", marginRight: "1rem" }}
+              />
+            )}
+          />
+        </div>
+        <div className="search__bar">
+          <TextField
+            label="Busca un ramo"
+            onChange={(e) => setCurso(e.target.value)}
+          />
+        </div>
       </div>
       <div className="table__oferta">
         <Paper style={{ height: 400, width: "100%" }}>
