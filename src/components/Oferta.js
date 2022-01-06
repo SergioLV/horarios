@@ -177,9 +177,16 @@ const carreras = [
 ];
 
 function Oferta() {
-  // console.log(rows);
+  const [curso, setCurso] = useState("");
   const [cursos, setCursos] = useState([]);
+  const [filtered, setFiltered] = useState([]);
   const [loadingCursos, setLoadingCursos] = useState(false);
+  useEffect(() => {
+    let newc = cursos.filter((c) => c.nombre_asignatura.includes(curso));
+    setFiltered(newc);
+  }, [curso]);
+  // console.log(curso);
+
   useEffect(() => {
     setLoadingCursos(true);
     const getCursos = () => {
@@ -187,6 +194,7 @@ function Oferta() {
         .get("https://horariosfic.herokuapp.com/informatica")
         .then((response) => {
           setCursos(response.data.rows);
+          setFiltered(response.data.rows);
           setLoadingCursos(false);
           console.log(response.data.rows);
         })
@@ -217,13 +225,16 @@ function Oferta() {
         />
       </div>
       <div className="search__bar">
-        <TextField label="Busca un ramo" />
+        <TextField
+          label="Busca un ramo"
+          onChange={(e) => setCurso(e.target.value)}
+        />
       </div>
       <div className="table__oferta">
         <Paper style={{ height: 400, width: "100%" }}>
           <VirtualizedTable
-            rowCount={cursos.length}
-            rowGetter={({ index }) => cursos[index]}
+            rowCount={filtered.length}
+            rowGetter={({ index }) => filtered[index]}
             columns={[
               {
                 width: 120,
