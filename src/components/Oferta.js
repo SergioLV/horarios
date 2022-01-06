@@ -247,7 +247,7 @@ function Oferta() {
                 dataKey: "seccion",
               },
               {
-                width: 200,
+                width: 240,
                 label: "Descripción Evento",
                 dataKey: "descripcion_evento",
               },
