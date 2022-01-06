@@ -22,7 +22,12 @@ function Home() {
           <button className="home__horario__button">
             <Link
               to="/horario"
-              style={{ textDecoration: "none", color: "#FFF" }}
+              style={{
+                textDecoration: "none",
+                color: "#FFF",
+                paddingLeft: "2rem",
+                paddingRight: "2rem",
+              }}
             >
               Crea tu Horario
             </Link>
@@ -30,7 +35,12 @@ function Home() {
           <button className="home__oferta__button">
             <Link
               to="/oferta"
-              style={{ textDecoration: "none", color: "#FFF" }}
+              style={{
+                textDecoration: "none",
+                color: "#FFF",
+                paddingLeft: "2rem",
+                paddingRight: "2rem",
+              }}
             >
               {" "}
               Ver Oferta

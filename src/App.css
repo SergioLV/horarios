@@ -165,7 +165,7 @@
   border: none;
   background-color: #c11c2b;
   color: white;
-  padding: 0.4rem 2rem;
+  padding: 0.2rem 0;
   border-radius: 50px;
 }
 .home__buttons {
@@ -185,7 +185,7 @@
   border: none;
   background-color: #c11c2b;
   color: white;
-  padding: 0.4rem 2rem;
+  padding: 0.2rem 0;
   border-radius: 50px;
 }
 .home__oferta__button:hover {
