@@ -15,8 +15,15 @@
   flex-direction: row;
   justify-content: space-between;
 }
-.title {
-  font-size: 1.6rem;
+.title h1 {
+  font-weight: 300 !important;
+  font-size: 2.3rem;
+  color: #000;
+}
+
+.fic {
+  font-weight: 500;
+  font-size: 2.3rem;
   color: #c11c2b;
 }
 .title h1 {
@@ -283,7 +290,7 @@
   justify-content: center;
 }
 .table__oferta {
-  width: 50vw;
+  width: 80vw;
 }
 .ReactVirtualized__Table__headerRow {
   background-color: #c11c2b;
@@ -316,27 +323,27 @@
 .github__link:hover {
   color: #c11c2b;
 }
-/* .table__containter {
-  border: 100px solid black;
-  border-radius: 100px;
-  overflow: hidden;
-} */
+.table__container {
+  margin-bottom: 5rem;
+}
 table {
-  /* border: 10px solid #cccccc; */
+  border-collapse: collapse;
+  /* 
   border-radius: 6px 6px 6px 6px;
   border-spacing: 0px !important;
   border-radius: 10px;
-  box-shadow: 7px 7px 5px rgb(222, 221, 221);
+  box-shadow: 7px 7px 5px rgb(222, 221, 221); */
+  /* border-collapse: collapse; */
+  /* border-collapse: separate; */
+  /* border: solid black 1px; */
+  /* border-radius: 6px; */
 }
-
+td {
+  background-color: #f7f6f6;
+}
 .days {
   background-color: #c11c2b;
   color: white;
-}
-.hours {
-  background-color: #c11c2b;
-  color: white;
-  text-align: center;
 }
 th {
   font-size: 1rem;
@@ -346,40 +353,38 @@ th,
 td {
   padding: 0.5rem;
   height: 4em;
-  max-width: 7rem;
+  max-width: 6rem;
   width: 10rem;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  /* border-left: solid black 1px; */
+  /* border-top: solid black 1px; */
+}
+.hours {
+  background-color: #c11c2b;
+  color: white;
+  text-align: center;
+  border: none;
 }
 td:hover {
-  background-color: #c11c2b;
+  background-color: #cbcbcb63;
 }
-/* td:hover{
-  border: 1px solid rgb(255, 128, 128);
+td {
+  border-left: solid 1px hsla(0, 0%, 0%, 0.388);
+  border-right: solid 1px rgba(0, 0, 0, 0.389);
+  border-top: solid 1px rgba(0, 0, 0, 0.389);
+  border-bottom: solid 1px rgba(0, 0, 0, 0.389);
 }
-tr{
-  text-align: center;
+th:first-child {
+  border-top-left-radius: 15px;
 }
-td:first-child{
-  background-color: white;
-  font-size: 1rem;
-  font-weight: lighter ;
-  border-top: 0px;
-  border-bottom: 0px !important;
+th:last-child {
+  border-top-right-radius: 15px;
 }
-tr:last-child td{
-  border-bottom: 1px solid black;
-
+/* tr:last-child td:first-child {
+  border-bottom-left-radius: 15px;
 }
-td{
-  border-right:1px solid black ;
-  border-top:1px solid black ;
+tr:last-child td:last-child {
+  border-bottom-right-radius: 15px;
 } */
-
-tr:nth-child(2n) {
-  background: #e8e8e8;
-}
-tr:nth-child(2n + 3) {
-  background: #c6c5c5;
-}

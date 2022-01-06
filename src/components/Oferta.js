@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Autocomplete from "@mui/material/Autocomplete";
 import TextField from "@mui/material/TextField";
 
@@ -9,6 +9,8 @@ import { createTheme } from "@mui/material/styles";
 import TableCell from "@mui/material/TableCell";
 import Paper from "@mui/material/Paper";
 import { AutoSizer, Column, Table } from "react-virtualized";
+
+import axios from "axios";
 
 import Footer from "./Footer";
 
@@ -167,25 +169,6 @@ const VirtualizedTable = withStyles(styles, { defaultTheme })(
 
 // ---
 
-const sample = [
-  ["Frozen yoghurt", 159, 6.0, 24, 4.0],
-  ["Ice cream sandwich", 237, 9.0, 37, 4.3],
-  ["Eclair", 262, 16.0, 24, 6.0],
-  ["Cupcake", 305, 3.7, 67, 4.3],
-  ["Gingerbread", 356, 16.0, 49, 3.9],
-];
-
-function createData(id, dessert, calories, fat, carbs, protein) {
-  return { id, dessert, calories, fat, carbs, protein };
-}
-
-const rows = [];
-
-for (let i = 0; i < 200; i += 1) {
-  const randomSelection = sample[Math.floor(Math.random() * sample.length)];
-  rows.push(createData(i, ...randomSelection));
-}
-
 const carreras = [
   { label: "Industrial" },
   { label: "Obras" },
@@ -193,74 +176,97 @@ const carreras = [
 ];
 
 function Oferta() {
+  // console.log(rows);
+  const [cursos, setCursos] = useState([]);
+  const [loadingCursos, setLoadingCursos] = useState(false);
+  useEffect(() => {
+    setLoadingCursos(true);
+    const getCursos = () => {
+      axios
+        .get("https://horariosfic.herokuapp.com/informatica")
+        .then((response) => {
+          setCursos(response.data.rows);
+          setLoadingCursos(false);
+          console.log(response.data.rows);
+        })
+        .catch((e) => {
+          //
+        });
+    };
+    getCursos();
+  }, []);
   return (
     <div className="page__content__oferta">
-      <Paper style={{ padding: "3rem" }} elevation={3} variant="outlined">
-        <div className="oferta__">
-          <div className="selector__carrera__oferta">
-            <h2>Selecciona una carrera</h2>
-            <Autocomplete
-              id="disable-close-on-select"
-              // disableCloseOnSelect
-              options={carreras}
-              renderInput={(params) => (
-                <TextField
-                  {...params}
-                  label="Carrera"
-                  id="filled-size-normal"
-                  // defaultValue="Normal"
-                  variant="standard"
-                  style={{ width: "9rem", marginRight: "1rem" }}
-                />
-              )}
+      <div className="selector__carrera__oferta">
+        <h2>Selecciona una carrera</h2>
+        <Autocomplete
+          id="disable-close-on-select"
+          // disableCloseOnSelect
+          options={carreras}
+          renderInput={(params) => (
+            <TextField
+              {...params}
+              label="Carrera"
+              id="filled-size-normal"
+              // defaultValue="Normal"
+              variant="standard"
+              style={{ width: "9rem", marginRight: "1rem" }}
             />
-          </div>
-          <div className="search__bar">
-            <TextField label="Busca un ramo" />
-          </div>
-          <div className="table__oferta__container">
-            <div className="table__oferta">
-              <Paper style={{ height: 400, width: "100%" }}>
-                <VirtualizedTable
-                  rowCount={rows.length}
-                  rowGetter={({ index }) => rows[index]}
-                  columns={[
-                    {
-                      width: 200,
-                      label: "Dessert",
-                      dataKey: "dessert",
-                    },
-                    {
-                      width: 120,
-                      label: "Calories\u00A0(g)",
-                      dataKey: "calories",
-                      numeric: true,
-                    },
-                    {
-                      width: 120,
-                      label: "Fat\u00A0(g)",
-                      dataKey: "fat",
-                      numeric: true,
-                    },
-                    {
-                      width: 120,
-                      label: "Carbs\u00A0(g)",
-                      dataKey: "carbs",
-                      numeric: true,
-                    },
-                    {
-                      width: 120,
-                      label: "Protein\u00A0(g)",
-                      dataKey: "protein",
-                      numeric: true,
-                    },
-                  ]}
-                />
-              </Paper>
-            </div>
-          </div>
-        </div>
-        <Footer />
+          )}
+        />
+      </div>
+      <div className="search__bar">
+        <TextField label="Busca un ramo" />
+      </div>
+      <Paper style={{ height: 400, width: "100%" }}>
+        <VirtualizedTable
+          rowCount={cursos.length}
+          rowGetter={({ index }) => cursos[index]}
+          columns={[
+            {
+              width: 100,
+              label: "Asignatura",
+              dataKey: "asignatura",
+            },
+            {
+              width: 280,
+              label: "Nombre Asignatura",
+              dataKey: "nombre_asignatura",
+            },
+            {
+              width: 100,
+              label: "Créditos",
+              dataKey: "creditos",
+              // numeric: true,
+            },
+            {
+              width: 160,
+              label: "Sección",
+              dataKey: "seccion",
+            },
+            {
+              width: 200,
+              label: "Descripción Evento",
+              dataKey: "descripcion_evento",
+            },
+
+            {
+              width: 300,
+              label: "Horario",
+              dataKey: "horario",
+            },
+            {
+              width: 300,
+              label: "Profesor",
+              dataKey: "profesor",
+            },
+            {
+              width: 190,
+              label: "Sede",
+              dataKey: "sede",
+            },
+          ]}
+        />
       </Paper>
     </div>
   );

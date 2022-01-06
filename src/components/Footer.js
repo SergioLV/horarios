@@ -1,7 +1,6 @@
 import React from "react";
 
 function Footer({ inScheduler }) {
-  console.log(inScheduler);
   return (
     <footer className={inScheduler ? "footer__scheduler" : "footer"}>
       <p>

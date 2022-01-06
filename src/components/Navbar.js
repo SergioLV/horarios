@@ -6,7 +6,9 @@ function navbar() {
     <nav className="navbar">
       <NavLink className="router__link" to="/">
         <div className="title">
-          <h1>Horarios FIC</h1>
+          <h1>
+            Horarios <span className="fic"> FIC</span>
+          </h1>
         </div>
       </NavLink>
       <div className="links">
