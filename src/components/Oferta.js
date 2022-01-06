@@ -9,6 +9,7 @@ import { createTheme } from "@mui/material/styles";
 import TableCell from "@mui/material/TableCell";
 import Paper from "@mui/material/Paper";
 import { AutoSizer, Column, Table } from "react-virtualized";
+import Skeleton from "@mui/material/Skeleton";
 
 import axios from "axios";
 
@@ -170,6 +171,25 @@ const VirtualizedTable = withStyles(styles, { defaultTheme })(
 
 // ---
 
+const sample = [
+  ["Frozen yoghurt", 159, 6.0, 24, 4.0],
+  ["Ice cream sandwich", 237, 9.0, 37, 4.3],
+  ["Eclair", 262, 16.0, 24, 6.0],
+  ["Cupcake", 305, 3.7, 67, 4.3],
+  ["Gingerbread", 356, 16.0, 49, 3.9],
+];
+
+function createData(id, dessert, calories, fat, carbs, protein) {
+  return { id, dessert, calories, fat, carbs, protein };
+}
+
+const rows = [];
+
+for (let i = 0; i < 200; i += 1) {
+  const randomSelection = sample[Math.floor(Math.random() * sample.length)];
+  rows.push(createData(i, ...randomSelection));
+}
+
 const carreras = [
   { label: "Industrial" },
   { label: "Obras" },
@@ -178,33 +198,84 @@ const carreras = [
 
 function Oferta() {
   const [curso, setCurso] = useState("");
-  const [cursos, setCursos] = useState([]);
-  const [filtered, setFiltered] = useState([]);
-  // const [loadingCursos, setLoadingCursos] = useState(false);
+  const [informatica, setInformatica] = useState([]);
+  const [obras, setObras] = useState([]);
+  const [carrera, setCarrera] = useState("informatica");
+  const [loadingCursos, setLoadingCursos] = useState(false);
+  const [cursos, setCursos] = useState([
+    {
+      asignatura: "",
+      nombre_asignatura: "",
+      creditos_asignatura: "",
+      asignaturas_referenciadas: null,
+      seccion: "",
+      descripcion_evento: "",
+      horario: "",
+      profesor: "",
+      sede: "",
+    },
+  ]);
+  const [filtered, setFiltered] = useState([
+    {
+      asignatura: "",
+      nombre_asignatura: "",
+      creditos_asignatura: "",
+      asignaturas_referenciadas: null,
+      seccion: "",
+      descripcion_evento: "",
+      horario: "",
+      profesor: "",
+      sede: "",
+    },
+  ]);
   useEffect(() => {
     let newc = cursos.filter((c) =>
       c.nombre_asignatura.includes(curso.toUpperCase())
     );
     setFiltered(newc);
   }, [curso]);
+  const aux = (e, value) => {
+    if (value === null) {
+      return;
+    }
+
+    // console.log("diuca");
+  };
 
   useEffect(() => {
-    // setLoadingCursos(true);
+    setLoadingCursos(true);
     const getCursos = () => {
       axios
         .get("https://horariosfic.herokuapp.com/informatica")
         .then((response) => {
-          setCursos(response.data.rows);
+          setInformatica(response.data.rows);
+          setCursos(informatica);
           setFiltered(response.data.rows);
-          // setLoadingCursos(false);
-          console.log(response.data.rows);
+          setLoadingCursos(false);
         })
         .catch((e) => {
           //
         });
     };
     getCursos();
-  }, []);
+  }, [carrera]);
+
+  // useEffect(() => {
+
+  //   const getCursos = () => {
+  //     axios
+  //       .get("https://horariosfic.herokuapp.com/obras")
+  //       .then((response) => {
+  //         setObras(response.data.rows);
+
+  //       })
+  //       .catch((e) => {
+
+  //       });
+  //   };
+  //   getCursos();
+  // }, [carrera]);
+
   return (
     <div className="page__content__oferta">
       <div className="buscador__oferta">
@@ -213,6 +284,14 @@ function Oferta() {
           <Autocomplete
             id="disable-close-on-select"
             // disableCloseOnSelect
+            onChange={(e, value) =>
+              setCarrera(
+                value.label
+                  .toLowerCase()
+                  .normalize("NFD")
+                  .replace(/\p{Diacritic}/gu, "")
+              )
+            }
             options={carreras}
             renderInput={(params) => (
               <TextField
@@ -228,6 +307,7 @@ function Oferta() {
         </div>
         <div className="search__bar">
           <TextField
+            autoComplete="false"
             label="Busca un ramo"
             onChange={(e) => setCurso(e.target.value)}
           />
@@ -236,8 +316,12 @@ function Oferta() {
       <div className="table__oferta">
         <Paper style={{ height: 400, width: "100%" }}>
           <VirtualizedTable
-            rowCount={filtered.length}
-            rowGetter={({ index }) => filtered[index]}
+            rowCount={loadingCursos ? rows.length : filtered.length}
+            rowGetter={
+              loadingCursos
+                ? ({ index }) => rows[index]
+                : ({ index }) => filtered[index]
+            }
             columns={[
               {
                 width: 120,
