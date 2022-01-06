@@ -182,7 +182,9 @@ function Oferta() {
   const [filtered, setFiltered] = useState([]);
   const [loadingCursos, setLoadingCursos] = useState(false);
   useEffect(() => {
-    let newc = cursos.filter((c) => c.nombre_asignatura.includes(curso));
+    let newc = cursos.filter((c) =>
+      c.nombre_asignatura.includes(curso.toUpperCase())
+    );
     setFiltered(newc);
   }, [curso]);
   // console.log(curso);
