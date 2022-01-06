@@ -219,56 +219,58 @@ function Oferta() {
       <div className="search__bar">
         <TextField label="Busca un ramo" />
       </div>
-      <Paper style={{ height: 400, width: "100%" }}>
-        <VirtualizedTable
-          rowCount={cursos.length}
-          rowGetter={({ index }) => cursos[index]}
-          columns={[
-            {
-              width: 120,
-              label: "Asignatura",
-              dataKey: "asignatura",
-            },
-            {
-              width: 280,
-              label: "Nombre Asignatura",
-              dataKey: "nombre_asignatura",
-            },
-            {
-              width: 94,
-              label: "Créditos",
-              dataKey: "creditos_asignatura",
-              // numeric: true,
-            },
-            {
-              width: 160,
-              label: "Sección",
-              dataKey: "seccion",
-            },
-            {
-              width: 200,
-              label: "Descripción Evento",
-              dataKey: "descripcion_evento",
-            },
+      <div className="table__oferta">
+        <Paper style={{ height: 400, width: "100%" }}>
+          <VirtualizedTable
+            rowCount={cursos.length}
+            rowGetter={({ index }) => cursos[index]}
+            columns={[
+              {
+                width: 120,
+                label: "Asignatura",
+                dataKey: "asignatura",
+              },
+              {
+                width: 280,
+                label: "Nombre Asignatura",
+                dataKey: "nombre_asignatura",
+              },
+              {
+                width: 94,
+                label: "Créditos",
+                dataKey: "creditos_asignatura",
+                // numeric: true,
+              },
+              {
+                width: 160,
+                label: "Sección",
+                dataKey: "seccion",
+              },
+              {
+                width: 200,
+                label: "Descripción Evento",
+                dataKey: "descripcion_evento",
+              },
 
-            {
-              width: 300,
-              label: "Horario",
-              dataKey: "horario",
-            },
-            {
-              width: 300,
-              label: "Profesor",
-              dataKey: "profesor",
-            },
-            {
-              width: 190,
-              label: "Sede",
-              dataKey: "sede",
-            },
-          ]}
-        />
-      </Paper>
+              {
+                width: 300,
+                label: "Horario",
+                dataKey: "horario",
+              },
+              {
+                width: 300,
+                label: "Profesor",
+                dataKey: "profesor",
+              },
+              {
+                width: 190,
+                label: "Sede",
+                dataKey: "sede",
+              },
+            ]}
+          />
+        </Paper>
+      </div>
     </div>
   );
 }
