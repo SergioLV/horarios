@@ -235,6 +235,7 @@ function Oferta() {
     let newc = cursos.filter((c) =>
       c.nombre_asignatura.includes(curso.toUpperCase())
     );
+
     setFiltered(newc);
   }, [curso]);
 
@@ -244,8 +245,7 @@ function Oferta() {
       axios
         .get("https://horariosfic.herokuapp.com/informatica")
         .then((response) => {
-          setInformatica(response.data.rows);
-          setCursos(informatica);
+          setCursos(response.data.rows);
           setFiltered(response.data.rows);
           setLoadingCursos(false);
         })
