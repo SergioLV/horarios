@@ -43,6 +43,7 @@ const styles = (theme) => ({
   },
   tableCell: {
     flex: 1,
+    overflow: "hidden",
   },
   noClick: {
     cursor: "initial",
@@ -224,7 +225,7 @@ function Oferta() {
           rowGetter={({ index }) => cursos[index]}
           columns={[
             {
-              width: 100,
+              width: 120,
               label: "Asignatura",
               dataKey: "asignatura",
             },
@@ -234,9 +235,9 @@ function Oferta() {
               dataKey: "nombre_asignatura",
             },
             {
-              width: 100,
+              width: 94,
               label: "Créditos",
-              dataKey: "creditos",
+              dataKey: "creditos_asignatura",
               // numeric: true,
             },
             {
