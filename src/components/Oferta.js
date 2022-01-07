@@ -26,13 +26,13 @@ const CssTextField = styled(TextField)({
   },
   "& .MuiOutlinedInput-root": {
     "& fieldset": {
-      borderColor: "#c11c2b",
+      borderColor: "#000",
     },
     "&:hover fieldset": {
-      borderColor: "#c11c2b",
+      borderColor: "#000",
     },
     "&.Mui-focused fieldset": {
-      borderColor: "#c11c2b",
+      borderColor: "#000",
     },
   },
 });
@@ -56,14 +56,6 @@ const styles = (theme) => ({
     },
   },
 
-  tableRow: {
-    cursor: "pointer",
-  },
-  tableRowHover: {
-    "&:hover": {
-      backgroundColor: theme.palette.grey[200],
-    },
-  },
   tableCell: {
     flex: 1,
     overflow: "hidden",
@@ -297,66 +289,58 @@ function Oferta() {
   return (
     <div className="page__content__oferta">
       <div className="buscador__oferta">
-        <div className="selector__carrera__oferta">
-          <h2>Selecciona una carrera</h2>
-          <Autocomplete
-            id="disable-close-on-select"
-            // disableCloseOnSelect
-            onChange={(e, value) =>
-              setCarrera(
-                value.label
-                  .toLowerCase()
-                  .normalize("NFD")
-                  .replace(/\p{Diacritic}/gu, "")
-              )
-            }
-            sx={{
-              "& .MuiFormLabel-root": {
-                color: "#000",
-              },
-              "& .MuiInput-root:after": {
-                borderBottom: "2px solid #C11C2B",
-              },
-            }}
-            options={carreras}
-            renderInput={(params) => (
-              <TextField
-                {...params}
-                label="Carrera"
-                id="filled-size-normal"
-                // defaultValue="Normal"
-                variant="standard"
-                style={{ width: "9rem", marginRight: "1rem" }}
-              />
-            )}
-          />
+        <div className="table__oferta">
+          <div className="selector__carrera__oferta">
+            {/* <h2>Selecciona una carrera</h2> */}
+            <Autocomplete
+              id="disable-close-on-select"
+              // disableCloseOnSelect
+              onChange={(e, value) =>
+                setCarrera(
+                  value.label
+                    .toLowerCase()
+                    .normalize("NFD")
+                    .replace(/\p{Diacritic}/gu, "")
+                )
+              }
+              sx={{
+                "& .MuiFormLabel-root": {
+                  color: "#000",
+                },
+                "& .MuiInput-root:after": {
+                  borderBottom: "2px solid #C11C2B",
+                },
+              }}
+              options={carreras}
+              renderInput={(params) => (
+                <TextField
+                  {...params}
+                  label="Carrera"
+                  id="filled-size-normal"
+                  // defaultValue="Normal"
+                  variant="standard"
+                  style={{ width: "9rem", marginRight: "1rem" }}
+                />
+              )}
+            />
+          </div>
+          <div className="search__bar">
+            <CssTextField
+              autoComplete="false"
+              label="Busca un ramo"
+              id="custom-css-outlined-input"
+              onChange={(e) => setCurso(e.target.value)}
+            />
+          </div>
         </div>
-        <div className="search__bar">
-          {/* <TextField
-            autoComplete="false"
-            label="Busca un ramo"
-            onChange={(e) => setCurso(e.target.value)}
-          /> */}
-
-          <CssTextField
-            autoComplete="false"
-            label="Busca un ramo"
-            id="custom-css-outlined-input"
-            onChange={(e) => setCurso(e.target.value)}
-          />
-        </div>
-      </div>
-      <div className="table__oferta">
         <Paper style={{ height: 400, width: "100%" }}>
           <VirtualizedTable
             rowCount={loadingCursos ? rows.length : filtered.length}
-            // rowCount={rows.length}
             rowGetter={
               loadingCursos
                 ? ({ index }) => rows[index]
                 : ({ index }) => filtered[index]
             }
-            // rowGetter={({ index }) => rows[index]}
             columns={
               loadingCursos
                 ? [
