@@ -22,7 +22,7 @@ const CssTextField = styled(TextField)({
     color: "#000",
   },
   "& .MuiInput-underline:after": {
-    borderBottomColor: "#c11c2b",
+    borderBottomColor: "#000",
   },
   "& .MuiOutlinedInput-root": {
     "& fieldset": {
@@ -290,6 +290,14 @@ function Oferta() {
     <div className="page__content__oferta">
       <div className="buscador__oferta">
         <div className="table__oferta">
+          <div className="search__bar">
+            <CssTextField
+              autoComplete="false"
+              label="Busca un ramo"
+              id="custom-css-outlined-input"
+              onChange={(e) => setCurso(e.target.value)}
+            />
+          </div>
           <div className="selector__carrera__oferta">
             {/* <h2>Selecciona una carrera</h2> */}
             <Autocomplete
@@ -322,14 +330,6 @@ function Oferta() {
                   style={{ width: "9rem", marginRight: "1rem" }}
                 />
               )}
-            />
-          </div>
-          <div className="search__bar">
-            <CssTextField
-              autoComplete="false"
-              label="Busca un ramo"
-              id="custom-css-outlined-input"
-              onChange={(e) => setCurso(e.target.value)}
             />
           </div>
         </div>
