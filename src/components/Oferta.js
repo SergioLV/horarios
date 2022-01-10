@@ -214,8 +214,6 @@ const carreras = [
 
 function Oferta() {
   const [curso, setCurso] = useState("");
-  const [informatica, setInformatica] = useState([]);
-  const [obras, setObras] = useState([]);
   const [carrera, setCarrera] = useState("informatica");
   const [loadingCursos, setLoadingCursos] = useState(false);
   const [cursos, setCursos] = useState([
@@ -277,9 +275,9 @@ function Oferta() {
       <div className="buscador__oferta">
         <div className="table__oferta">
           <div className="selector__carrera__oferta">
-            {/* <h2>Selecciona una carrera</h2> */}
             <Autocomplete
               id="disable-close-on-select"
+              value="informática"
               // disableCloseOnSelect
               onChange={(e, value) =>
                 setCarrera(

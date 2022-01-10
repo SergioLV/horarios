@@ -9,7 +9,14 @@ function Home() {
       <div className="home__content">
         <div className="home__title">
           <Typical
-            steps={["Crea tu horario", 1000]}
+            steps={[
+              "Crea tu horario",
+              1000,
+              "Simula tu horario",
+              1000,
+              "Revisa la oferta",
+              1000,
+            ]}
             loop={Infinity}
             wrapper="p"
           />
