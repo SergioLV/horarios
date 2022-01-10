@@ -207,9 +207,16 @@ for (let i = 0; i < 10; i += 1) {
 }
 
 const carreras = [
-  { label: "Industrial", id: 1 },
-  { label: "Obras", id: 2 },
-  { label: "Informática", id: 3 },
+  { label: "Industrial", query: "industrial", id: 1 },
+  { label: "Obras", query: "obras", id: 2 },
+  { label: "Informática", query: "informatica", id: 3 },
+  { label: "Cursos de Formación General e Inglés", query: "cfg", id: 4 },
+  {
+    label: "Cursos Deportivos de Formación General",
+    query: "deportivos",
+    id: 5,
+  },
+  { label: "Obstetricia y Neonatología", query: "obstetricia", id: 6 },
 ];
 
 function Oferta() {
@@ -279,14 +286,7 @@ function Oferta() {
               id="disable-close-on-select"
               value="informática"
               // disableCloseOnSelect
-              onChange={(e, value) =>
-                setCarrera(
-                  value.label
-                    .toLowerCase()
-                    .normalize("NFD")
-                    .replace(/\p{Diacritic}/gu, "")
-                )
-              }
+              onChange={(e, value) => setCarrera(value.query)}
               sx={{
                 "& label.Mui-focused": {
                   color: "#000",
@@ -312,7 +312,7 @@ function Oferta() {
                   {...params}
                   label="Carrera"
                   id="filled-size-normal"
-                  style={{ width: "11rem", marginRight: "1rem" }}
+                  style={{ width: "15rem", marginRight: "1rem" }}
                 />
               )}
             />
