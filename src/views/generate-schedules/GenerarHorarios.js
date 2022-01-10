@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 
-import Scheduler from "./components/Scheduler";
-import UserSelection from "./components/UserSelection";
+import Scheduler from "../create-schedule/components/Scheduler";
+import UserSelection from "../create-schedule/components/UserSelection";
 import Footer from "../footer/Footer";
 
-function Horario() {
+function GenerarHorarios() {
   const [cursos, setCursos] = useState({
     lunes: ["Electricidad y Magnetismo", "", "Electronica"],
     martes: [],
@@ -24,4 +24,4 @@ function Horario() {
   );
 }
 
-export default Horario;
+export default GenerarHorarios;

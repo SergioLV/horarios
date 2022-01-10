@@ -5,8 +5,8 @@ import Navbar from "./views/navbar/Navbar";
 import Home from "./views/home/Home";
 import Horario from "./views/create-schedule/Horario";
 import Oferta from "./views/oferta/Oferta";
+import GenerarHorarios from "./views/generate-schedules/GenerarHorarios";
 // import Footer from "./components/Footer";
-import NewScheduler from "./views/create-schedule/components/Scheduler";
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/horario" element={<Horario />} />
         <Route path="/oferta" element={<Oferta />} />
-        <Route path="/nh" element={<NewScheduler />} />
+        <Route path="/generador-de-horarios" element={<GenerarHorarios />} />
         <Route path="*" element={<Home />} />
       </Routes>
       {/* <Footer /> */}

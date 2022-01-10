@@ -75,7 +75,7 @@
 }
 .active__link:after {
   content: "";
-  width: 42.3%;
+  width: 24.5%;
   margin-top: 1rem;
   height: 2px;
   background: #c11c2b;
@@ -88,13 +88,26 @@
 }
 .active__link__2:after {
   content: "";
-  width: 53%;
+  width: 30.8%;
   margin-top: 1rem;
   height: 2px;
   background: #c11c2b;
   position: absolute;
   bottom: 0%;
   right: 0%;
+}
+.active__link__3 h2 {
+  font-weight: 500;
+}
+.active__link__3:after {
+  content: "";
+  width: 39.3%;
+  margin-top: 1rem;
+  height: 2px;
+  background: #c11c2b;
+  position: absolute;
+  bottom: 0%;
+  right: 33.5%;
 }
 
 .first_link:hover:after {

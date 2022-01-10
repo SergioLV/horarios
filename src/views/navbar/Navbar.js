@@ -22,6 +22,14 @@ function navbar() {
         </NavLink>
         <NavLink
           className={({ isActive }) =>
+            isActive ? "router__link active__link__3" : ""
+          }
+          to="/generador-de-horarios"
+        >
+          <h2 className="first_link">Generador de Horarios</h2>
+        </NavLink>
+        <NavLink
+          className={({ isActive }) =>
             isActive ? "router__link active__link__2" : ""
           }
           to="/oferta"
