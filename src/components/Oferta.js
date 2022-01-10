@@ -4,18 +4,17 @@ import TextField from "@mui/material/TextField";
 
 import PropTypes from "prop-types";
 import clsx from "clsx";
-import { alpha, styled } from "@mui/material/styles";
+import { styled } from "@mui/material/styles";
 import { withStyles } from "@mui/styles";
 import { createTheme } from "@mui/material/styles";
 import TableCell from "@mui/material/TableCell";
 import Paper from "@mui/material/Paper";
 import { AutoSizer, Column, Table } from "react-virtualized";
 import Skeleton from "@mui/material/Skeleton";
-import InputBase from "@mui/material/InputBase";
 
 import axios from "axios";
 
-import Footer from "./Footer";
+// import Footer from "./Footer";
 
 const CssTextField = styled(TextField)({
   "& label.Mui-focused": {
@@ -67,8 +66,8 @@ const styles = (theme) => ({
 
 class MuiVirtualizedTable extends React.PureComponent {
   static defaultProps = {
-    headerHeight: 48,
-    rowHeight: 48,
+    headerHeight: 58,
+    rowHeight: 58,
   };
 
   getRowClassName = ({ index }) => {
@@ -208,9 +207,9 @@ for (let i = 0; i < 10; i += 1) {
 }
 
 const carreras = [
-  { label: "Industrial" },
-  { label: "Obras" },
-  { label: "Informática" },
+  { label: "Industrial", id: 1 },
+  { label: "Obras", id: 2 },
+  { label: "Informática", id: 3 },
 ];
 
 function Oferta() {
@@ -232,6 +231,7 @@ function Oferta() {
       sede: "",
     },
   ]);
+
   const [filtered, setFiltered] = useState([
     {
       asignatura: "",
@@ -246,22 +246,16 @@ function Oferta() {
     },
   ]);
   useEffect(() => {
-    let newc = cursos.filter((c) =>
-      c.nombre_asignatura.includes(curso.toUpperCase())
-    );
-
-    setFiltered(newc);
-  }, [curso]);
-
-  useEffect(() => {
     setLoadingCursos(true);
     const getCursos = () => {
       axios
-        .get("https://horariosfic.herokuapp.com/informatica")
+        .get("https://horariosfic.herokuapp.com/".concat(carrera))
         .then((response) => {
           setCursos(response.data.rows);
           setFiltered(response.data.rows);
           setLoadingCursos(false);
+          console.log("render", carrera);
+          console.log(response.data.rows);
         })
         .catch((e) => {
           //
@@ -270,34 +264,18 @@ function Oferta() {
     getCursos();
   }, [carrera]);
 
-  // useEffect(() => {
+  useEffect(() => {
+    let newc = cursos.filter((c) =>
+      c.nombre_asignatura.includes(curso.toUpperCase())
+    );
 
-  //   const getCursos = () => {
-  //     axios
-  //       .get("https://horariosfic.herokuapp.com/obras")
-  //       .then((response) => {
-  //         setObras(response.data.rows);
-
-  //       })
-  //       .catch((e) => {
-
-  //       });
-  //   };
-  //   getCursos();
-  // }, [carrera]);
+    setFiltered(newc);
+  }, [curso]);
 
   return (
     <div className="page__content__oferta">
       <div className="buscador__oferta">
         <div className="table__oferta">
-          <div className="search__bar">
-            <CssTextField
-              autoComplete="false"
-              label="Busca un ramo"
-              id="custom-css-outlined-input"
-              onChange={(e) => setCurso(e.target.value)}
-            />
-          </div>
           <div className="selector__carrera__oferta">
             {/* <h2>Selecciona una carrera</h2> */}
             <Autocomplete
@@ -312,11 +290,22 @@ function Oferta() {
                 )
               }
               sx={{
-                "& .MuiFormLabel-root": {
+                "& label.Mui-focused": {
                   color: "#000",
                 },
-                "& .MuiInput-root:after": {
-                  borderBottom: "2px solid #C11C2B",
+                "& .MuiInput-underline:after": {
+                  borderBottomColor: "#000",
+                },
+                "& .MuiOutlinedInput-root": {
+                  "& fieldset": {
+                    borderColor: "#000",
+                  },
+                  "&:hover fieldset": {
+                    borderColor: "#000",
+                  },
+                  "&.Mui-focused fieldset": {
+                    borderColor: "#000",
+                  },
                 },
               }}
               options={carreras}
@@ -325,11 +314,17 @@ function Oferta() {
                   {...params}
                   label="Carrera"
                   id="filled-size-normal"
-                  // defaultValue="Normal"
-                  variant="standard"
-                  style={{ width: "9rem", marginRight: "1rem" }}
+                  style={{ width: "11rem", marginRight: "1rem" }}
                 />
               )}
+            />
+          </div>
+          <div className="search__bar">
+            <CssTextField
+              autoComplete="false"
+              label="Busca un ramo"
+              id="custom-css-outlined-input"
+              onChange={(e) => setCurso(e.target.value)}
             />
           </div>
         </div>
