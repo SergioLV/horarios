@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
-import NewScheduler from "./NewScheduler";
-import UserSelection from "./UserSelection";
-import Footer from "./Footer";
+import NewScheduler from "./components/Scheduler";
+import UserSelection from "./components/UserSelection";
+import Footer from "../footer/Footer";
 
 function Horario() {
   const [cursos, setCursos] = useState({

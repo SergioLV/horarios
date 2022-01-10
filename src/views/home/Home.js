@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Typical from "react-typical";
-import Footer from "./Footer";
+import Footer from "../footer/Footer";
 
 function Home() {
   return (

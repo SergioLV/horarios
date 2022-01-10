@@ -1,6 +1,6 @@
 import React from "react";
 
-function NewScheduler({ cursos }) {
+function Scheduler({ cursos }) {
   return (
     <div className="page__content">
       <div className="table__container">
@@ -110,4 +110,4 @@ function NewScheduler({ cursos }) {
   );
 }
 
-export default NewScheduler;
+export default Scheduler;

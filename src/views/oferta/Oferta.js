@@ -259,8 +259,6 @@ function Oferta() {
           setCursos(response.data.rows);
           setFiltered(response.data.rows);
           setLoadingCursos(false);
-          console.log("render", carrera);
-          console.log(response.data.rows);
         })
         .catch((e) => {
           //
@@ -284,7 +282,7 @@ function Oferta() {
           <div className="selector__carrera__oferta">
             <Autocomplete
               id="disable-close-on-select"
-              value="informática"
+              value="Informática"
               // disableCloseOnSelect
               onChange={(e, value) => setCarrera(value.query)}
               sx={{

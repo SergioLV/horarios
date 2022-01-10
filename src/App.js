@@ -1,12 +1,12 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import Navbar from "./components/Navbar";
-import Home from "./components/Home";
-import Horario from "./components/Horario";
-import Oferta from "./components/Oferta";
+import Navbar from "./views/navbar/Navbar";
+import Home from "./views/home/Home";
+import Horario from "./views/create-schedule/Horario";
+import Oferta from "./views/oferta/Oferta";
 // import Footer from "./components/Footer";
-import NewScheduler from "./components/NewScheduler";
+import NewScheduler from "./views/create-schedule/components/Scheduler";
 
 function App() {
   return (
